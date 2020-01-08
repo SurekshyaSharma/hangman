@@ -1,5 +1,6 @@
 #importing the time module
 import time
+import random
 
 #welcoming the user
 name = input("What is your name? ")
@@ -17,12 +18,16 @@ time.sleep(0.5)
 read_file = open("hangman.txt","r")
 
 file_output= read_file.read()
+def random_line(fname):
+    lines = open(fname).read().splitlines()
+    return random.choice(lines)
+print(random_line('hangman.txt'))
 
 # print(file_output)
 
 read_file.close()
 # #here we set the secret
-# word = "secret"
+# word = (random_line('hangman.txt'))
 
 # #creates an variable with an empty value
 # guesses = ''
