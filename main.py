@@ -9,89 +9,94 @@ print (  name + "!!!" " Get Ready...")
 
 print ("")
 
-#wait for 1 second
+#waiting time
 time.sleep(1)
 
-print ("Start guessing...")
+print (" Let's get started. Shall we!!")
 time.sleep(0.5)
-
+# ---------------------Randon line display start--------------------
 read_file = open("hangman.txt","r")
 
 file_output= read_file.read()
 def random_line(fname):
     lines = open(fname).read().splitlines()
     return random.choice(lines)
-print(random_line('hangman.txt'))
 
 # print(file_output)
 
-read_file.close()
-# #here we set the secret
-# word = (random_line('hangman.txt'))
+# read_file.close()
+# --------------------------Random line display finish---------------
 
-# #creates an variable with an empty value
-# guesses = ''
+# #hewe set the secret
+word = random_line('hangman.txt')
+# print(word)
 
-# #determine the number of turns
-# turns = 10
+# creates an variable with an empty value
+guesses = ''
 
-# # Create a while loop
+#determine the number of turns
+turns = 10
 
-# #check if the turns are more than zero
-# while turns > 0:         
+# Create a while loop
 
-#     # make a counter that starts with zero
-#     failed = 0             
+#check if the turns are more than zero
+while turns > 0:         
 
-#     # for every character in secret_word    
-#     for char in word:      
+    # make a counter that starts with zero
+    failed = 0             
 
-#     # see if the character is in the players guess
-#         if char in guesses:    
+    # for every character in word    
+    for char in word:      
+
+    # see if the character is in the players guess
+        if char in guesses:    
     
-#         # print then out the character
-#             print (char)    
+        # print then out the character
+            print (char,end="")    
 
-#         else:
+        else:
     
-#         # if not found, print a dash
-#             print ("_")     
+        # if not found, print a dash
+            print ("__","",end="")     
        
-#         # and increase the failed counter with one
-#             failed += 1    
+        # and increase the failed counter with one
+            failed += 1    
 
-#     # if failed is equal to zero
+    # if failed is equal to zero
 
-#     # print You Won
-#     if failed == 0:        
-#         print ("You won")
+    # print You Won
+    if failed == 0:        
+        print ("Yay!! Yon Won")
 
 
-#     # exit the script
-#         break              
+    # exit the script
+        break              
 
-#     print
+    print
+    print()
+    print()
 
-#     # ask the user go guess a character
-#     guess = input("guess a character:") 
+    # ask the user go guess a character
+    guess = input("Start Guessing...") 
 
-#     # set the players guess to guesses
-#     guesses += guess                    
+    # set the players guess to guesses
+    guesses += guess                    
 
-#     # if the guess is not found in the secret word
-#     if guess not in word:  
+    # if the guess is not found in the secret word
+    if guess not in word:  
  
-#      # turns counter decreases with 1 (now 9)
-#         turns -= 1        
+     # turns counter decreases with 1 (now 9)
+        turns -= 1        
  
-#     # print wrong
-#         print ("Wrong")    
+    # print wrong
+        print ("Wrong")    
  
-#     # how many turns are left
-#         print ("You have", + turns, 'more guesses') 
+    # how many turns are left
+        print ("You have", + turns, 'more guesses') 
  
-#     # if the turns are equal to zero
-#         if turns == 0:           
+    # if the turns are equal to zero
+        if turns == 0:           
     
-#         # print "You Lose"
-#             print ("You Lose")  
+        # print "You Lose"
+            print ("You Lose!!")  
+            print ("Word was " + word + ".")
