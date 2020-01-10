@@ -1,6 +1,135 @@
 #importing the time module
 import time
 import random
+hangman_P =["""
+-----
+|   |
+|
+|
+|
+|
+|
+|
+|
+--------
+""",
+"""
+-----
+|   |
+|   0
+|
+|
+|
+|
+|
+|
+--------
+""","""
+-----
+|   |
+|   0
+|  -+-
+|
+|
+|
+|
+|
+--------
+""",
+"""
+-----
+|   |
+|   0
+| /-+-
+|
+|
+|
+|
+|
+--------
+""",
+"""-----
+|   |
+|   0
+| /-+-\ 
+|
+|
+|
+|
+|
+--------
+""",
+"""
+-----
+|   |
+|   0
+| /-+-\ 
+|   | 
+|
+|
+|
+|
+--------
+""",
+"""
+-----|   |
+|   0
+| /-+-\ 
+|   | 
+|   | 
+|
+|
+|
+--------
+""",
+"""
+-----
+|   |
+|   0
+| /-+-\ 
+|   | 
+|   | 
+|  |
+|
+|
+--------
+""",
+"""
+-----
+|   |
+|   0
+| /-+-\ 
+|   | 
+|   | 
+|  | 
+|  | 
+|
+--------
+""",
+"""
+-----
+|   |
+|   0
+| /-+-\ 
+|   | 
+|   | 
+|  | | 
+|  | 
+|
+--------
+""",
+"""
+-----
+|   |
+|   0
+| /-+-\ 
+|   | 
+|   | 
+|  | | 
+|  | | 
+|
+--------
+"""]
 
 #welcoming the user
 name = input("What is your name? ")
@@ -35,10 +164,10 @@ word = random_line('hangman.txt')
 guesses = ''
 
 #determine the number of turns
-turns = 10
+turns = 9
 
 # Create a while loop
-
+i=0
 #check if the turns are more than zero
 while turns > 0:         
 
@@ -66,11 +195,11 @@ while turns > 0:
 
     # print You Won
     if failed == 0:        
-        print ("Yay!! Yon Won")
+        print (" Yay!! Yon Won")
 
 
     # exit the script
-        break              
+        break               
 
     print
     print()
@@ -83,20 +212,27 @@ while turns > 0:
     guesses += guess                    
 
     # if the guess is not found in the secret word
-    if guess not in word:  
+    if guess not in word: 
  
      # turns counter decreases with 1 (now 9)
         turns -= 1        
+    # looping through the hangman_P array
  
     # print wrong
-        print ("Wrong")    
- 
+        print ("Try Again!!")   
+    
+    if i < len(hangman_P):
+      print(hangman_P [i])
+      i += 1
+    
     # how many turns are left
-        print ("You have", + turns, 'more guesses') 
+    print ("You have", + turns, 'more guesses') 
  
     # if the turns are equal to zero
-        if turns == 0:           
+    if turns == 0:           
     
         # print "You Lose"
             print ("You Lose!!")  
             print ("Word was " + word + ".")
+
+        
